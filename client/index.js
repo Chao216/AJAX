@@ -17,3 +17,18 @@ btn.onclick = () => {
     }
   };
 };
+
+const box = document.getElementById("ajax");
+
+box.addEventListener("mouseover", () => {
+  const xhr = new XMLHttpRequest();
+  xhr.open("POST", "http://localhost:3000/server");
+  xhr.send();
+  xhr.onreadystatechange = () => {
+    if (xhr.readyState === 4) {
+      if ((xhr.status >= 200) & (xhr.status < 300) || xhr.status === 304) {
+        box.innerHTML = xhr.response;
+      }
+    }
+  };
+});

@@ -70,3 +70,33 @@ btn.onclick = () => {
   };
 };
 ```
+
+## AJAX post
+
+server side
+
+```javascript
+app.post("/server", (req, res) => {
+  res.setHeader("Access-Control-Allow-Origin", "*"); // enabling cross-origin resource sharing
+  res.send("Hello Ajax");
+});
+```
+
+clident side
+
+```javascript
+const box = document.getElementById("ajax");
+
+box.addEventListener("mouseover", () => {
+  const xhr = new XMLHttpRequest();
+  xhr.open("POST", "http://localhost:3000/server");
+  xhr.send();
+  xhr.onreadystatechange = () => {
+    if (xhr.readyState === 4) {
+      if ((xhr.status >= 200) & (xhr.status < 300) || xhr.status === 304) {
+        box.innerHTML = xhr.response;
+      }
+    }
+  };
+});
+```

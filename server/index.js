@@ -6,6 +6,10 @@ app.get("/server", (req, res) => {
   res.setHeader("Access-Control-Allow-Origin", "*"); // enabling cross-origin resource sharing
   res.send("Hello Ajax");
 });
+app.post("/server", (req, res) => {
+  res.setHeader("Access-Control-Allow-Origin", "*"); // enabling cross-origin resource sharing
+  res.send("Hello Ajax");
+});
 
 const port = process.env.PORT || 3000;
 
