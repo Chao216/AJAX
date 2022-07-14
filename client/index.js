@@ -2,7 +2,7 @@ const btn = document.querySelector("button");
 
 btn.onclick = () => {
   const xhr = new XMLHttpRequest(); // create a new XMLHTTPREQUEST object
-  xhr.open("GET", "http://localhost:3000/server"); // set method, and url
+  xhr.open("GET", "http://localhost:3000/server?a=100&b=200&c=3000"); // set method, and url
   xhr.send(); // send request
   xhr.onreadystatechange = () => {
     if (xhr.readyState === 4) {
