@@ -164,3 +164,12 @@ xhr.onerror = () => {
   alert("network down");
 };
 ```
+
+## the `abort()` method
+
+you just need to use
+
+```javascript
+const xhr = new XMLHttpRequest();
+xhr.abort();
+```
