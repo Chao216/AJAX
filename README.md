@@ -90,7 +90,7 @@ const box = document.getElementById("ajax");
 box.addEventListener("mouseover", () => {
   const xhr = new XMLHttpRequest();
   xhr.open("POST", "http://localhost:3000/server");
-  xhr.send();
+  xhr.send("a=100&b=3000&c=10");
   xhr.onreadystatechange = () => {
     if (xhr.readyState === 4) {
       if ((xhr.status >= 200) & (xhr.status < 300) || xhr.status === 304) {
@@ -100,3 +100,7 @@ box.addEventListener("mouseover", () => {
   };
 });
 ```
+
+request body
+
+you can write `xhr.send("a=12&b=13&c=17")`
