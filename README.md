@@ -104,3 +104,29 @@ box.addEventListener("mouseover", () => {
 request body
 
 you can write `xhr.send("a=12&b=13&c=17")`
+
+## AJAX json data
+
+in server side
+
+```javascript
+app.all("/json", (req, res) => {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  const man = {
+    name: "Vova",
+    age: 28,
+    married: true,
+  };
+  const str = JSON.stringify(man);
+  res.send(str);
+});
+```
+
+client side
+
+manual parse
+
+```javascript
+let data = JSON.parse(xhr.response);
+box.innerHTML = data.age;
+```
