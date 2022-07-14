@@ -130,3 +130,12 @@ manual parse
 let data = JSON.parse(xhr.response);
 box.innerHTML = data.age;
 ```
+
+to auto parse json
+
+```javascript
+const xhr = new XMLHttpRequest();
+xhr.responseType = "json";
+
+box.innerHTML = xhr.response.married;
+```
