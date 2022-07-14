@@ -139,3 +139,28 @@ xhr.responseType = "json";
 
 box.innerHTML = xhr.response.married;
 ```
+
+## timeout and network error
+
+server set a timeout timer
+
+```javascript
+app.get("/delay", (req, res) => {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  setTimeout(() => {
+    res.send("this is delayed after 3 seconds");
+  }, 3000);
+});
+```
+
+client use
+
+```javascript
+xhr.timeout = 2000;
+xhr.ontimeout = () => {
+  alert("delayed");
+};
+xhr.onerror = () => {
+  alert("network down");
+};
+```

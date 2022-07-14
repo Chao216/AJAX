@@ -22,6 +22,13 @@ app.all("/json", (req, res) => {
   res.send(str);
 });
 
+app.get("/delay", (req, res) => {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  setTimeout(() => {
+    res.send("this is delayed after 3 seconds");
+  }, 3000);
+});
+
 const port = process.env.PORT || 3000;
 
 app.listen(port, () => {
